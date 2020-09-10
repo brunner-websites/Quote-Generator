@@ -44,17 +44,13 @@ async function getQuote() {
   } catch (error) {
     counter++;
 
-    if (couter > 10) {
+    if (counter > 10) {
       console.error("an error occured", error);
     } else {
       counter = 0;
       getQuote();
     }
   }
-}
-    
-  }
-
 }
 
 
