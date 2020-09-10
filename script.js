@@ -17,6 +17,7 @@ function toggleLoader() {
 
 }
 
+let counter = 0;
 
 async function getQuote() {
   toggleLoader();
@@ -41,7 +42,17 @@ async function getQuote() {
     quoteElement.innerText = data.quoteText;
 
   } catch (error) {
-    getQuote();
+    counter++;
+
+    if (couter > 10) {
+      console.error("an error occured", error);
+    } else {
+      counter = 0;
+      getQuote();
+    }
+  }
+}
+    
   }
 
 }
